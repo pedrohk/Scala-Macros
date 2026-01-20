@@ -1,5 +1,3 @@
----
-
 ## **Why Scala Has Macros**
 
 * Boilerplate grows fast
@@ -7,7 +5,6 @@
 * Many errors appear too late
 * **Idea:** move logic from runtime to compile time
 
----
 
 ## **What Is a Macro?**
 
@@ -16,7 +13,6 @@
 * Produces **typed Scala code** as output
 * Expanded code is compiled normally
 
----
 
 ## **Where Macros Run**
 
