@@ -126,3 +126,55 @@
 
 ---
 
+## **Macro vs Compiler: What’s the Difference?**
+
+* The compiler translates code into bytecode.
+* A macro runs *inside* the compiler.
+* Macros do not replace the compiler.
+* They **extend the compiler with user-defined logic**.
+* Think of macros as **compile-time plugins written in Scala**.
+
+> Compiler = infrastructure
+> Macro = user-defined compile-time program
+
+---
+
+## **Why Two “Languages”? (Normal Syntax + Macro Syntax)**
+
+* Normal Scala syntax:
+
+  * Describes **what runs at runtime**
+* Macro syntax:
+
+  * Describes **how code is generated**
+* Separation is intentional:
+
+  * Keeps runtime code simple
+  * Keeps compile-time logic explicit and safe
+* This avoids confusing runtime and compile-time concerns.
+
+> One language, two phases — not two languages.
+
+---
+
+## ** Comparison with Zig `comptime`**
+
+* Zig `comptime`:
+
+  * Executes normal Zig code at compile time
+  * No separate macro syntax
+* Scala macros:
+
+  * Use structured ASTs (`Expr`, `Type`)
+  * Strong separation between phases
+* Trade-off:
+
+  * Zig: simpler mental model
+  * Scala: stronger typing and safer transformations
+
+> Scala favors **safety and structure**
+> Zig favors **uniformity and simplicity**
+
+---
+
+
