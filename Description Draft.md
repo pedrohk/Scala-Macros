@@ -59,10 +59,26 @@ Macros are widely used in modern Scala libraries. The Scala standard library its
 Macros cannot access runtime data or perform I/O. They increase compile time and add conceptual complexity to a codebase. For these reasons, macros should be used carefully and only when simpler abstractions are not sufficient.
 
 ---
+## **Macro vs Compiler: What’s the Difference?**
+
+The compiler’s job is fixed: it parses code, type-checks it, and produces bytecode. A macro does not replace or reimplement the compiler. Instead, it runs inside the compiler and lets developers inject custom logic during compilation. You can think of macros as user-defined extensions that teach the compiler how to generate code in specific situations.
+
+---
+
+## **Why Two “Languages”? (Normal Syntax + Macro Syntax)**
+
+It may look like Scala has two languages, but it really has two phases. Normal Scala code describes what runs at runtime. Macro syntax describes how code is generated at compile time. This separation is intentional: it avoids mixing runtime logic with compile-time logic, which would make programs harder to reason about and less safe.
+
+---
+
+## **Comparison with Zig comptime**
+
+Zig allows you to run normal Zig code at compile time using comptime, which creates a very uniform model. Scala takes a different approach: macros operate on typed syntax trees, not raw values. This adds complexity, but it also provides stronger guarantees and safer code generation. Scala favors explicit structure and type safety over simplicity.
+
+---
 
 ## **Final Message**
 
 Macros are a powerful way to shift logic from runtime to compile time. They improve safety, performance, and expressiveness, but require discipline and deep understanding. When used correctly, macros are one of Scala’s most powerful features.
 
 ---
-
