@@ -1,0 +1,23 @@
+Scala has macros because some problems are better solved at compile time than at runtime. In large projects, we often write a lot of repetitive code. We also use runtime reflection, which is slow and unsafe. Many errors are only discovered when the program is already running. Macros allow us to move this logic into the compiler, so errors appear earlier and performance is better.
+
+macro is a program that runs during compilation. It receives Scala code as input and generates new Scala code as output. This generated code is then compiled normally. Macros do not run business logic. Instead, they create the code that will run later, at runtime.
+
+Macros run inside the compilation process. First, the compiler reads the source code. Then macros are expanded. After that, the generated code is type-checked and turned into bytecode. Because of this, macros do not exist at runtime and do not add any runtime cost.
+
+In Scala 3, macros are built using a few core building blocks. The first one is inline, which forces code to be expanded at compile time. The second is quotes, which allow us to treat code as data. The third is splices, which insert generated code back into the program. Together, these tools allow code to be transformed safely during compilation.
+
+A macro can see the structure of the code, not the final values. It can see expressions, method calls, and types, but it cannot see runtime data. This means macros work on syntax trees, not on computed results. This is what makes them powerful and safe.
+
+This matters because macros enable many useful features. They allow compile-time validation, like checking SQL queries or regular expressions before the program runs. They also make zero-cost abstractions possible, such as logging that disappears when disabled. In addition, macros can generate large amounts of boilerplate code automatically, without runtime overhead.
+
+Macros are widely used in real-world Scala libraries. The Scala standard library uses macros. Frameworks like ZIO, Circe, and Shapeless rely on macros to generate type-safe and efficient code, while keeping the user-facing API simple.
+
+However, macros also have limits and trade-offs. They cannot access runtime data or perform input and output. They increase compilation time and add complexity to the codebase. For this reason, macros should be used carefully and only when simpler solutions are not enough.
+
+It is also important to understand the difference between a macro and a compiler. The compiler translates code into bytecode. A macro does not replace the compiler. Instead, it runs inside the compiler and extends it with user-defined compile-time logic. You can think of macros as a way to program the compiler itself.
+
+Some people ask why Scala seems to have two languages: normal Scala syntax and macro syntax. In reality, it is one language with two phases. Normal syntax describes what happens at runtime. Macro syntax describes how code is generated at compile time. This separation keeps programs easier to understand and safer.
+
+In Zig, normal code can run at compile time, which feels very simple. Scala takes a different approach by using typed syntax trees and a clear separation between compile time and runtime. This makes Scala macros more complex, but also safer and more structured.
+
+In summary, macros allow Scala to move work from runtime to compile time, improving safety, performance, and expressiveness when used correctly.
