@@ -18,4 +18,12 @@ object PositiveMacro {
         '{ 0 }
     }
   }
+
+  def positiveRuntime(value: Int): Int = {
+    if (value > 0) {
+      value
+    } else {
+      throw new IllegalArgumentException("Value must be positive")
+    }
+  }
 }

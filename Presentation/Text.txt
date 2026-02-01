@@ -8,6 +8,21 @@ Macros allow compile-time validation, like checking SQL queries or regular expre
 
 However, macros also have limits and trade-offs. They cannot access runtime data or perform input and output. They increase compilation time and add complexity to the codebase. For this reason, macros should be used carefully and only when simpler solutions are not enough.
 
+Código:
+Here is the translation to English:
+
+“A piece of code that, when executed, will produce an Int. In other words, the macro does not receive the value 5, it receives the code 5.”
+
+“With `Quotes` you can analyze code, generate code, emit errors, and access the AST. Without this, the function cannot be a macro.”
+
+“This is a compile-time value extraction.”
+
+“`quotes.reflect.report.error(...)`: this is a compile-time error. It does not throw an exception and does not run at runtime. It stops the compiler.”
+
+“`'{ 0 }` This is a quote: it creates a piece of code that represents the value 0.”
+
+
+
 It is also important to understand the difference between a macro and a compiler. The compiler translates code into bytecode. A macro does not replace the compiler. Instead, it runs inside the compiler and extends it with user-defined compile-time logic. You can think of macros as a way to program the compiler itself.
 
 Some people ask why Scala seems to have two languages: normal Scala syntax and macro syntax. In reality, it is one language with two phases. Normal syntax describes what happens at runtime. Macro syntax describes how code is generated at compile time. This separation keeps programs easier to understand and safer.
